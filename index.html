@@ -3,933 +3,1264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decking Comparison Chart</title>
+    <title>Prestige Renovation - Luxury Decking Atelier</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --luxury-gold: #d4af37;
+            --rich-gold: #b8941f;
+            --accent-copper: #cd7f32;
+            --deep-black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --soft-black: #2d2d2d;
+            --pearl-white: #fafafa;
+            --cream: #f8f6f0;
+            --platinum: #e5e4e2;
+            --shadow-gold: rgba(212, 175, 55, 0.3);
+            --shadow-deep: rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, #d4af37 0%, #cd7f32 50%, #b8941f 100%);
+            --gradient-glass: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #e8f5e8 100%);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--deep-black);
+            background: radial-gradient(ellipse at top, #faf9f7 0%, #f5f3ee 50%, #f0ebe3 100%);
             min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            color: #1f2937;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            margin-bottom: 30px;
-        }
-        
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .filter-btn {
-            padding: 10px 20px;
-            border: 2px solid #d1d5db;
-            background: white;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .filter-btn.active {
-            background: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
-            transform: scale(1.05);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .product-card.entry {
-            border-color: #10b981;
-            background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
-        }
-        
-        .product-card.mid-tier {
-            border-color: #3b82f6;
-            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
-        }
-        
-        .product-card.premium {
-            border-color: #8b5cf6;
-            background: linear-gradient(135deg, #f3e8ff 0%, #ffffff 100%);
-        }
-        
-        .product-card.ultra {
-            border-color: #f59e0b;
-            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
-        }
-        
-        .product-card.budget {
-            border-color: #f97316;
-            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
-        }
-        
-        .product-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .product-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        
-        .product-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .product-description {
-            font-size: 0.9rem;
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        .price-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .dollar {
-            color: #10b981;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .dollar.inactive {
-            color: #d1d5db;
-        }
-        
-        .brands-section {
-            margin-bottom: 20px;
-        }
-        
-        .brands-toggle {
+
+        /* Animated background particles */
+        .luxury-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 12px;
-            background: rgba(255,255,255,0.7);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--luxury-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: -0.5s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: -1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: -1.5s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: -2s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: -2.5s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: -3s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: -3.5s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: -4s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: -4.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            50% { transform: translateY(-10vh) rotate(180deg); opacity: 0.6; }
         }
         
-        .brands-toggle:hover {
-            background: rgba(255,255,255,0.9);
-        }
-        
-        .brands-list {
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .brands-list.open {
-            display: block;
-        }
-        
-        .brand-item {
-            padding: 8px 12px;
-            background: rgba(255,255,255,0.8);
-            margin: 3px 0;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .ratings {
-            margin-bottom: 20px;
-        }
-        
-        .rating-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .stars {
-            display: flex;
-            gap: 2px;
-        }
-        
-        .star {
-            width: 16px;
-            height: 16px;
-            color: #fbbf24;
-        }
-        
-        .star.empty {
-            color: #d1d5db;
-        }
-        
-        .info-section {
-            margin-bottom: 20px;
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .pros-cons {
-            margin-bottom: 20px;
-        }
-        
-        .pros-cons h4 {
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .pros-cons ul {
-            list-style: none;
-        }
-        
-        .pros-cons li {
-            font-size: 0.8rem;
-            margin-bottom: 5px;
-            padding-left: 15px;
+        .luxury-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
             position: relative;
         }
         
-        .pros-cons li::before {
+        .prestige-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 2rem;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
+            box-shadow: 
+                0 25px 80px var(--shadow-deep),
+                inset 0 1px 0 rgba(255,255,255,0.8),
+                0 0 0 1px rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: headerFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes headerFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .prestige-header::before {
+            content: '';
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-primary);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .prestige-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            animation: luxuryRotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes luxuryRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
-        .pros li::before {
-            content: "✅";
+        .brand-signature {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 2rem;
+            padding: 18px 36px;
+            background: var(--deep-black);
+            color: var(--pearl-white);
+            border-radius: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            box-shadow: 
+                0 12px 35px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .brand-signature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            animation: brandShine 4s ease-in-out infinite;
+        }
+
+        @keyframes brandShine {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
         }
         
-        .cons li::before {
-            content: "⚠️";
+        .signature-emblem {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-black);
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.2),
+                0 4px 12px var(--shadow-gold);
+            animation: emblePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes emblePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
-        .cta-buttons {
+        .prestige-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px var(--shadow-gold);
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+            animation: titleGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
+            50% { filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5)); }
+        }
+        
+        .prestige-subtitle {
+            font-size: 1.4rem;
+            color: var(--soft-black);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .luxury-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prestige-badge {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            padding: 14px 28px;
+            font-weight: 600;
+            color: var(--deep-black);
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: badgeFloat 6s ease-in-out infinite;
+        }
+
+        .prestige-badge:nth-child(1) { animation-delay: -1s; }
+        .prestige-badge:nth-child(2) { animation-delay: -2s; }
+        .prestige-badge:nth-child(3) { animation-delay: -3s; }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-3px) rotate(0.5deg); }
+            66% { transform: translateY(2px) rotate(-0.5deg); }
+        }
+
+        .prestige-badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .prestige-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 30px 30px 0 0;
+            animation: badgeShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeShimmer {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .luxury-tabs {
+            margin-bottom: 3rem;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            padding: 25px;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            box-shadow: 
+                0 15px 40px var(--shadow-deep),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .tabs-navigation::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            padding: 2px;
+            background: var(--gradient-primary);
+            border-radius: 32px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            opacity: 0.3;
+            animation: borderPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .luxury-tab {
+            padding: 18px 32px;
+            border: 2px solid transparent;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            color: var(--deep-black);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 170px;
+            justify-content: center;
+            box-shadow: 
+                0 6px 20px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .luxury-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .luxury-tab:hover::before {
+            left: 100%;
+        }
+        
+        .luxury-tab:hover {
+            border-color: var(--luxury-gold);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 
+                0 15px 45px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        
+        .luxury-tab.active {
+            background: var(--gradient-primary);
+            color: var(--deep-black);
+            border-color: var(--rich-gold);
+            transform: scale(1.06);
+            box-shadow: 
+                0 20px 50px var(--shadow-gold),
+                inset 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: 800;
+        }
+
+        .luxury-tab.active::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 48px;
+            pointer-events: none;
+        }
+        
+        .tab-emblem {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            animation: tabEmblemFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes tabEmblemFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-2px) rotate(5deg); }
+        }
+        
+        .luxury-content {
+            display: none;
+            animation: luxurySlideIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .luxury-content.active {
+            display: block;
+        }
+        
+        @keyframes luxurySlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px) scale(0.95) rotateX(10deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+        
+        .prestige-card {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 35px;
+            padding: 3.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 80px var(--shadow-deep),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .prestige-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 340deg, rgba(212, 175, 55, 0.1) 360deg);
+            animation: cardRotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes cardRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .prestige-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 35px 35px 0 0;
+        }
+        
+        .prestige-card:hover::before {
+            opacity: 1;
+            animation: topGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes topGlow {
+            0%, 100% { box-shadow: 0 0 20px var(--shadow-gold); }
+            50% { box-shadow: 0 0 40px var(--shadow-gold); }
+        }
+        
+        .prestige-card:hover {
+            border-color: var(--luxury-gold);
+            transform: translateY(-10px) scale(1.02) rotateX(2deg);
+            box-shadow: 
+                0 40px 100px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        
+        .prestige-card.signature {
+            background: linear-gradient(145deg, #fff9f0, rgba(255,248,235,0.95));
+            border-color: var(--luxury-gold);
+            box-shadow: 
+                0 30px 90px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            animation: signatureGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes signatureGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 30px 90px var(--shadow-gold),
+                    inset 0 1px 0 rgba(255,255,255,0.8);
+            }
+            50% { 
+                box-shadow: 
+                    0 35px 100px rgba(212, 175, 55, 0.4),
+                    inset 0 1px 0 rgba(255,255,255,0.9);
+            }
+        }
+        
+        .signature-crown {
+            position: absolute;
+            top: -18px;
+            right: 35px;
+            background: var(--gradient-primary);
+            color: var(--deep-black);
+            padding: 14px 28px;
+            border-radius: 35px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 
+                0 10px 30px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            animation: crownFloat 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                box-shadow: 0 10px 30px var(--shadow-gold);
+            }
+            50% { 
+                transform: translateY(-3px) rotate(1deg); 
+                box-shadow: 0 15px 40px var(--shadow-gold);
+            }
+        }
+        
+        .card-header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2.5rem;
+            align-items: start;
+            margin-bottom: 3.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .luxury-icon {
+            font-size: 4.5rem;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 12px 35px rgba(0,0,0,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+        }
+
+        .luxury-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px var(--shadow-gold);
+        }
+        
+        .luxury-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 30px 30px 0 0;
+            animation: iconShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes iconShimmer {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .card-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--deep-black);
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .card-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            animation: titleUnderline 2s ease-in-out infinite;
+        }
+
+        @keyframes titleUnderline {
+            0%, 100% { width: 60px; opacity: 0.7; }
+            50% { width: 80px; opacity: 1; }
+        }
+        
+        .tier-badge {
+            display: inline-block;
+            background: var(--deep-black);
+            color: var(--luxury-gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            box-shadow: 
+                0 6px 20px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            animation: badgeSlide 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeSlide {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+        
+        .luxury-description {
+            color: var(--soft-black);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .investment-level {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 10px;
-        }
-        
-        .btn {
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: #3b82f6;
-            color: white;
-            border: 2px solid #3b82f6;
-        }
-        
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: scale(1.02);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #3b82f6;
-            border: 2px solid #3b82f6;
-        }
-        
-        .btn-secondary:hover {
-            background: #3b82f6;
-            color: white;
-        }
-        
-        .brand-showcase {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .brand-card {
-            text-align: center;
             padding: 20px;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .investment-label {
+            font-size: 0.9rem;
+            color: var(--soft-black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .price-diamonds {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .price-diamond {
+            width: 14px;
+            height: 14px;
+            background: var(--luxury-gold);
+            transform: rotate(45deg);
+            box-shadow: 0 3px 6px var(--shadow-gold);
             transition: all 0.3s ease;
+            animation: diamondTwinkle 2s ease-in-out infinite;
+        }
+
+        .price-diamond:nth-child(1) { animation-delay: 0s; }
+        .price-diamond:nth-child(2) { animation-delay: 0.2s; }
+        .price-diamond:nth-child(3) { animation-delay: 0.4s; }
+        .price-diamond:nth-child(4) { animation-delay: 0.6s; }
+        .price-diamond:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes diamondTwinkle {
+            0%, 100% { transform: rotate(45deg) scale(1); opacity: 1; }
+            50% { transform: rotate(45deg) scale(1.1); opacity: 0.8; }
         }
         
-        .brand-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .price-diamond.inactive {
+            background: var(--platinum);
+            box-shadow: none;
+            animation: none;
         }
         
-        .hidden {
-            display: none;
+        .excellence-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .excellence-metrics::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background: var(--gradient-primary);
+            border-radius: 26px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            opacity: 0.3;
+            animation: metricsGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes metricsGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .metric-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .metric-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.15),
+                0 0 30px var(--shadow-gold);
+        }
+        
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: valueGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes valueGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5)); }
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--soft-black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .luxury-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .detail-section h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-black);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .detail-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50px;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 1px;
+            animation: sectionLine 3s ease-in-out infinite;
+        }
+
+        @keyframes sectionLine {
+            0%, 100% { width: 40px; opacity: 0.7; }
+            50% { width: 60px; opacity: 1; }
+        }
+        
+        .detail-emblem {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-black);
+            font-size: 1rem;
+            font-weight: 800;
+            box-shadow: 
+                0 6px 15px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            animation: emblemSpin 6s linear infinite;
+        }
+
+        @keyframes emblemSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .craftsmanship-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        
+        .craftsmanship-list li {
+            padding: 16px 24px;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--luxury-gold);
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .craftsmanship-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
+            transition: width 0.4s ease;
+        }
+
+        .craftsmanship-list li:hover::before {
+            width: 100%;
+        }
+        
+        .craftsmanship-list li:hover {
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.15),
+                0 0 20px var(--shadow-gold);
+            border-left-color: var(--accent-copper);
+        }
+        
+        .luxury-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+        }
+        
+        .advantages-list, .considerations-list {
+            list-style: none;
+        }
+        
+        .advantages-list li, .considerations-list li {
+            padding: 16px 0;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .advantages-list li:hover, .considerations-list li:hover {
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+        
+        .luxury-check {
+            color: #2d8653;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            animation: checkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .luxury-caution {
+            color: var(--accent-copper);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            animation: cautionGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes cautionGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .prestige-actions {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .luxury-button {
+            background: var(--gradient-primary);
+            color: var(--deep-black);
+            border: none;
+            padding: 18px 36px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .luxury-button::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 33px;
+            pointer-events: none;
+        }
+        
+        .luxury-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .luxury-button:hover::before {
+            left: 100%;
+        }
+        
+        .luxury-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 
+                0 20px 50px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+        }
+
+        .luxury-button:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+        
+        .secondary-button {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(15px);
+            color: var(--deep-black);
+            border: 2px solid var(--luxury-gold);
+            padding: 16px 36px;
+            border-radius: 35px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .secondary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        .secondary-button:hover::before {
+            width: 100%;
+        }
+        
+        .secondary-button:hover {
+            color: var(--deep-black);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 40px var(--shadow-gold),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            border-color: var(--accent-copper);
+        }
+
+        /* Responsive Design Enhancements */
+        @media (max-width: 1024px) {
+            .luxury-container {
+                padding: 2rem 1rem;
+            }
+            
+            .prestige-title {
+                font-size: 3.8rem;
+            }
+
+            .prestige-header {
+                padding: 3rem 1.5rem;
+            }
+            
+            .card-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .luxury-comparison {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .luxury-details {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .excellence-metrics {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.5rem;
+                padding: 2rem;
+            }
         }
         
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+            .prestige-title {
+                font-size: 3rem;
+            }
+
+            .prestige-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .prestige-card {
+                padding: 2.5rem 2rem;
             }
             
-            .filter-buttons {
+            .prestige-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .luxury-button, .secondary-button {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .tabs-navigation {
+                justify-content: stretch;
+                padding: 20px;
+                gap: 10px;
+            }
+            
+            .luxury-tab {
+                flex: 1;
+                min-width: auto;
+                padding: 16px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .luxury-badges {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
-            
-            .products-grid {
+
+            .brand-signature {
+                padding: 16px 28px;
+                font-size: 0.8rem;
+            }
+
+            .signature-emblem {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+
+            .luxury-icon {
+                width: 90px;
+                height: 90px;
+                font-size: 3.5rem;
+            }
+
+            .card-info h3 {
+                font-size: 2rem;
+            }
+
+            .excellence-metrics {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .metric-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .metric-value {
+                font-size: 1.8rem;
+            }
+
+            .signature-crown {
+                font-size: 0.7rem;
+                padding: 12px 20px;
+                top: -15px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .luxury-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .prestige-header {
+                padding: 2.5rem 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .prestige-title {
+                font-size: 2.5rem;
+            }
+
+            .tabs-navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .luxury-tab {
+                width: 100%;
+            }
+
+            .excellence-metrics {
                 grid-template-columns: 1fr;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🏡 Professional Decking Material Guide</h1>
-            <p>Compare our complete range of decking materials by tier and performance</p>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn" onclick="filterProducts('all')">Show All</button>
-                <button class="filter-btn" onclick="filterProducts('entry')">🌟 Entry</button>
-                <button class="filter-btn" onclick="filterProducts('mid-tier')">⭐ Mid-Tier</button>
-                <button class="filter-btn" onclick="filterProducts('premium')">🏆 Premium</button>
-                <button class="filter-btn" onclick="filterProducts('ultra')">💎 Ultra-Premium</button>
-                <button class="filter-btn" onclick="filterProducts('budget')">🌲 Budget</button>
-            </div>
-        </div>
-        
-        <div class="products-grid" id="productsGrid">
-            <!-- Entry Level -->
-            <div class="product-card entry" data-category="entry">
-                <div class="product-header">
-                    <div class="product-icon">🌟</div>
-                    <h3 class="product-title" style="color: #10b981;">Composite Decking - Entry Level</h3>
-                    <p class="product-description">Budget-friendly composite with essential benefits</p>
-                    <div class="price-display">
-                        <span>Price Range: </span>
-                        <span class="dollar">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                    </div>
-                </div>
-                
-                <div class="brands-section">
-                    <button class="brands-toggle" onclick="toggleBrands('entry')">
-                        Available Brands (2) ▼
-                    </button>
-                    <div class="brands-list" id="brands-entry">
-                        <div class="brand-item">• Trex Enhance Basics</div>
-                        <div class="brand-item">• Deckorators Venture</div>
-                    </div>
-                </div>
-                
-                <div class="ratings">
-                    <div class="rating-row">
-                        <span>Durability</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Low Maintenance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                            <span class="star empty">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Appearance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-item">
-                        <span>🕐</span>
-                        <span><strong>Expected Lifespan:</strong> 10-15 years</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🛡️</span>
-                        <span><strong>Warranty:</strong> 1-2 years</span>
-                    </div>
-                </div>
-                
-                <div class="pros-cons">
-                    <h4 style="color: #f97316;">Key Benefits</h4>
-                    <ul class="pros">
-                        <li>Most affordable option</li>
-                        <li>Natural wood look</li>
-                        <li>Easy to work with</li>
-                        <li>Readily available</li>
-                    </ul>
-                    
-                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
-                    <ul class="cons">
-                        <li>Requires regular staining</li>
-                        <li>Prone to warping/splitting</li>
-                        <li>Chemical treatment concerns</li>
-                        <li>High maintenance</li>
-                    </ul>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Budget Quote</button>
-                    <button class="btn btn-secondary">View Product Details</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Brand Showcase -->
-        <div class="brand-showcase">
-            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px;">🏗️ Our Trusted Decking Partners</h2>
-            <div class="brand-grid">
-                <div class="brand-card">
-                    <h3 style="color: #10b981; font-size: 1.2rem; margin-bottom: 10px;">TREX</h3>
-                    <p style="font-size: 0.9rem; color: #6b7280;">America's #1 composite decking brand with proven performance</p>
-                </div>
-                <div class="brand-card">
-                    <h3 style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 10px;">DECKORATORS</h3>
-                    <p style="font-size: 0.9rem; color: #6b7280;">Premium composite options with exceptional design flexibility</p>
-                </div>
-                <div class="brand-card">
-                    <h3 style="color: #8b5cf6; font-size: 1.2rem; margin-bottom: 10px;">TIMBERTECH</h3>
-                    <p style="font-size: 0.9rem; color: #6b7280;">Luxury composite decking with industry-leading warranties</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Bottom CTA -->
-        <div class="brand-showcase">
-            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px;">Ready to Start Your Decking Project?</h2>
-            <p style="text-align: center; color: #6b7280; margin-bottom: 25px;">Our experts will help you choose the perfect tier and brand for your needs and budget.</p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-                <button class="btn btn-primary" style="padding: 15px 30px;">Schedule Free Consultation</button>
-                <button class="btn btn-secondary" style="padding: 15px 30px;">View Our Portfolio</button>
-                <button class="btn" style="background: #6b7280; color: white; border: 2px solid #6b7280; padding: 15px 30px;">Download Catalog</button>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Filter functionality
-        function filterProducts(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
-            
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        }
-        
-        // Toggle brands functionality
-        function toggleBrands(category) {
-            const brandsList = document.getElementById(`brands-${category}`);
-            const toggle = event.target;
-            
-            if (brandsList.classList.contains('open')) {
-                brandsList.classList.remove('open');
-                toggle.innerHTML = toggle.innerHTML.replace('▲', '▼');
-            } else {
-                brandsList.classList.add('open');
-                toggle.innerHTML = toggle.innerHTML.replace('▼', '▲');
+
+            .luxury-comparison {
+                gap: 2rem;
             }
         }
-        
-        // Initialize - show all products
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstButton = document.querySelector('.filter-btn');
-            if (firstButton) {
-                firstButton.classList.add('active');
+
+        /* Enhanced Animation Performance */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
-        });
-        
-        // Add smooth transitions
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.style.transition = 'all 0.3s ease';
-        });
-    </script>
-</body>
-</html>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Low Maintenance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Appearance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-item">
-                        <span>🕐</span>
-                        <span><strong>Expected Lifespan:</strong> 20-25 years</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🛡️</span>
-                        <span><strong>Warranty:</strong> 25 years</span>
-                    </div>
-                </div>
-                
-                <div class="pros-cons">
-                    <h4 style="color: #10b981;">Key Benefits</h4>
-                    <ul class="pros">
-                        <li>Affordable composite option</li>
-                        <li>Low maintenance</li>
-                        <li>Splinter-free</li>
-                        <li>25-year warranty</li>
-                    </ul>
-                    
-                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
-                    <ul class="cons">
-                        <li>Limited color options</li>
-                        <li>Basic performance features</li>
-                        <li>May show wear sooner</li>
-                    </ul>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Entry Quote</button>
-                    <button class="btn btn-secondary">View Product Details</button>
-                </div>
-            </div>
-            
-            <!-- Mid-Tier -->
-            <div class="product-card mid-tier" data-category="mid-tier">
-                <div class="product-header">
-                    <div class="product-icon">⭐</div>
-                    <h3 class="product-title" style="color: #3b82f6;">Composite Decking - Mid-Tier</h3>
-                    <p class="product-description">Best balance of performance and value</p>
-                    <div class="price-display">
-                        <span>Price Range: </span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar" style="opacity: 0.6;">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                    </div>
-                </div>
-                
-                <div class="brands-section">
-                    <button class="brands-toggle" onclick="toggleBrands('mid-tier')">
-                        Available Brands (3) ▼
-                    </button>
-                    <div class="brands-list" id="brands-mid-tier">
-                        <div class="brand-item">• Trex Select</div>
-                        <div class="brand-item">• Deckorators Vista</div>
-                        <div class="brand-item">• TimberTech Terrain</div>
-                    </div>
-                </div>
-                
-                <div class="ratings">
-                    <div class="rating-row">
-                        <span>Durability</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Low Maintenance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Appearance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star empty">★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-item">
-                        <span>🕐</span>
-                        <span><strong>Expected Lifespan:</strong> 25-30 years</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🛡️</span>
-                        <span><strong>Warranty:</strong> 25-30 years</span>
-                    </div>
-                </div>
-                
-                <div class="pros-cons">
-                    <h4 style="color: #3b82f6;">Key Benefits</h4>
-                    <ul class="pros">
-                        <li>Great value</li>
-                        <li>Enhanced durability</li>
-                        <li>Better color selection</li>
-                        <li>Proven performance</li>
-                    </ul>
-                    
-                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
-                    <ul class="cons">
-                        <li>Higher cost than entry</li>
-                        <li>Still some limitations vs premium</li>
-                        <li>May fade slightly over time</li>
-                    </ul>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Mid-Tier Quote</button>
-                    <button class="btn btn-secondary">View Product Details</button>
-                </div>
-            </div>
-            
-            <!-- Premium -->
-            <div class="product-card premium" data-category="premium">
-                <div class="product-header">
-                    <div class="product-icon">🏆</div>
-                    <h3 class="product-title" style="color: #8b5cf6;">Composite Decking - Premium</h3>
-                    <p class="product-description">High-performance composite with premium features</p>
-                    <div class="price-display">
-                        <span>Price Range: </span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar" style="opacity: 0.6;">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                    </div>
-                </div>
-                
-                <div class="brands-section">
-                    <button class="brands-toggle" onclick="toggleBrands('premium')">
-                        Available Brands (4) ▼
-                    </button>
-                    <div class="brands-list" id="brands-premium">
-                        <div class="brand-item">• Trex Transcend</div>
-                        <div class="brand-item">• Deckorators Vault</div>
-                        <div class="brand-item">• Deckorators Voyage</div>
-                        <div class="brand-item">• TimberTech Harvest</div>
-                    </div>
-                </div>
-                
-                <div class="ratings">
-                    <div class="rating-row">
-                        <span>Durability</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Low Maintenance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Appearance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-item">
-                        <span>🕐</span>
-                        <span><strong>Expected Lifespan:</strong> 25-30 years</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🛡️</span>
-                        <span><strong>Warranty:</strong> 25-50 years</span>
-                    </div>
-                </div>
-                
-                <div class="pros-cons">
-                    <h4 style="color: #8b5cf6;">Key Benefits</h4>
-                    <ul class="pros">
-                        <li>Superior fade resistance</li>
-                        <li>Enhanced scratch resistance</li>
-                        <li>Premium color options</li>
-                        <li>Best warranties</li>
-                    </ul>
-                    
-                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
-                    <ul class="cons">
-                        <li>Higher investment</li>
-                        <li>Premium pricing</li>
-                        <li>May require professional installation</li>
-                    </ul>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Premium Quote</button>
-                    <button class="btn btn-secondary">View Product Details</button>
-                </div>
-            </div>
-            
-            <!-- Ultra-Premium -->
-            <div class="product-card ultra" data-category="ultra">
-                <div class="product-header">
-                    <div class="product-icon">💎</div>
-                    <h3 class="product-title" style="color: #f59e0b;">Composite Decking - Ultra-Premium</h3>
-                    <p class="product-description">Luxury composite decking with unmatched performance</p>
-                    <div class="price-display">
-                        <span>Price Range: </span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                        <span class="dollar">$</span>
-                    </div>
-                </div>
-                
-                <div class="brands-section">
-                    <button class="brands-toggle" onclick="toggleBrands('ultra')">
-                        Available Brands (2) ▼
-                    </button>
-                    <div class="brands-list" id="brands-ultra">
-                        <div class="brand-item">• TimberTech Castle Gate</div>
-                        <div class="brand-item">• TimberTech Landmark</div>
-                    </div>
-                </div>
-                
-                <div class="ratings">
-                    <div class="rating-row">
-                        <span>Durability</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Low Maintenance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                    <div class="rating-row">
-                        <span>Appearance</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-item">
-                        <span>🕐</span>
-                        <span><strong>Expected Lifespan:</strong> 30+ years</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🛡️</span>
-                        <span><strong>Warranty:</strong> Lifetime options</span>
-                    </div>
-                </div>
-                
-                <div class="pros-cons">
-                    <h4 style="color: #f59e0b;">Key Benefits</h4>
-                    <ul class="pros">
-                        <li>Luxury appearance</li>
-                        <li>Maximum durability</li>
-                        <li>Lifetime warranties available</li>
-                        <li>Superior performance</li>
-                    </ul>
-                    
-                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
-                    <ul class="cons">
-                        <li>Highest investment</li>
-                        <li>Premium installation required</li>
-                        <li>Limited budget flexibility</li>
-                    </ul>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Ultra-Premium Quote</button>
-                    <button class="btn btn-secondary">View Product Details</button>
-                </div>
-            </div>
-            
-            <!-- Budget -->
-            <div class="product-card budget" data-category="budget">
-                <div class="product-header">
-                    <div class="product-icon">🌲</div>
-                    <h3 class="product-title" style="color: #f97316;">Pressure-Treated Wood</h3>
-                    <p class="product-description">Traditional wood option for budget-conscious projects</p>
-                    <div class="price-display">
-                        <span>Price Range: </span>
-                        <span class="dollar">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                        <span class="dollar inactive">$</span>
-                    </div>
-                </div>
-                
-                <div class="brands-section">
-                    <button class="brands-toggle" onclick="toggleBrands('budget')">
-                        Available Options (1) ▼
-                    </button>
-                    <div class="brands-list" id="brands-budget">
-                        <div class="brand-item">• Traditional PT Pine</div>
-                    </div>
-                </div>
-                
-                <div class="ratings">
-                    <div class="rating-row">
-                        <span>Durability</span>
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --pearl-white: #1a1a1a;
+                --cream: #2d2d2d;
+                --deep-black: #f0f0f0;
+                --soft-black: #d0d0d0;
+                --charcoal: #f5f5f5;
+            }
+
+            body {
+                background: radial-gradient(ellipse at top, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            }
+
+            .prestige-card, .luxury-tab, .metric-item, .craftsmanship-list li {
+                background: linear-gradient(145deg, rgba(30,30,30,0.95), rgba(20,20,20,0.85));
+                border-color: rgba(212, 175, 55, 0.3);
+            }
+        }
