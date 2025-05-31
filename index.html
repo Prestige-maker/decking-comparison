@@ -404,6 +404,161 @@
                             <span class="star">★</span>
                             <span class="star">★</span>
                             <span class="star">★</span>
+                            <span class="star empty">★</span>
+                            <span class="star empty">★</span>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span>Low Maintenance</span>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star empty">★</span>
+                            <span class="star empty">★</span>
+                            <span class="star empty">★</span>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span>Appearance</span>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star empty">★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-item">
+                        <span>🕐</span>
+                        <span><strong>Expected Lifespan:</strong> 10-15 years</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🛡️</span>
+                        <span><strong>Warranty:</strong> 1-2 years</span>
+                    </div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4 style="color: #f97316;">Key Benefits</h4>
+                    <ul class="pros">
+                        <li>Most affordable option</li>
+                        <li>Natural wood look</li>
+                        <li>Easy to work with</li>
+                        <li>Readily available</li>
+                    </ul>
+                    
+                    <h4 style="color: #f59e0b; margin-top: 15px;">Considerations</h4>
+                    <ul class="cons">
+                        <li>Requires regular staining</li>
+                        <li>Prone to warping/splitting</li>
+                        <li>Chemical treatment concerns</li>
+                        <li>High maintenance</li>
+                    </ul>
+                </div>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Get Budget Quote</button>
+                    <button class="btn btn-secondary">View Product Details</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brand Showcase -->
+        <div class="brand-showcase">
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px;">🏗️ Our Trusted Decking Partners</h2>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <h3 style="color: #10b981; font-size: 1.2rem; margin-bottom: 10px;">TREX</h3>
+                    <p style="font-size: 0.9rem; color: #6b7280;">America's #1 composite decking brand with proven performance</p>
+                </div>
+                <div class="brand-card">
+                    <h3 style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 10px;">DECKORATORS</h3>
+                    <p style="font-size: 0.9rem; color: #6b7280;">Premium composite options with exceptional design flexibility</p>
+                </div>
+                <div class="brand-card">
+                    <h3 style="color: #8b5cf6; font-size: 1.2rem; margin-bottom: 10px;">TIMBERTECH</h3>
+                    <p style="font-size: 0.9rem; color: #6b7280;">Luxury composite decking with industry-leading warranties</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom CTA -->
+        <div class="brand-showcase">
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px;">Ready to Start Your Decking Project?</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 25px;">Our experts will help you choose the perfect tier and brand for your needs and budget.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <button class="btn btn-primary" style="padding: 15px 30px;">Schedule Free Consultation</button>
+                <button class="btn btn-secondary" style="padding: 15px 30px;">View Our Portfolio</button>
+                <button class="btn" style="background: #6b7280; color: white; border: 2px solid #6b7280; padding: 15px 30px;">Download Catalog</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Filter functionality
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Toggle brands functionality
+        function toggleBrands(category) {
+            const brandsList = document.getElementById(`brands-${category}`);
+            const toggle = event.target;
+            
+            if (brandsList.classList.contains('open')) {
+                brandsList.classList.remove('open');
+                toggle.innerHTML = toggle.innerHTML.replace('▲', '▼');
+            } else {
+                brandsList.classList.add('open');
+                toggle.innerHTML = toggle.innerHTML.replace('▼', '▲');
+            }
+        }
+        
+        // Initialize - show all products
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstButton = document.querySelector('.filter-btn');
+            if (firstButton) {
+                firstButton.classList.add('active');
+            }
+        });
+        
+        // Add smooth transitions
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.transition = 'all 0.3s ease';
+        });
+    </script>
+</body>
+</html>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
                             <span class="star">★</span>
                             <span class="star empty">★</span>
                         </div>
