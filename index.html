@@ -119,23 +119,6 @@
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
-
-        .prestige-header::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.05), transparent);
-            animation: luxuryRotate 20s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes luxuryRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
         
         .brand-signature {
             display: inline-flex;
@@ -1081,7 +1064,7 @@
             border-color: var(--accent-copper);
         }
 
-        /* Responsive Design Enhancements */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .luxury-container {
                 padding: 2rem 1rem;
@@ -1236,7 +1219,7 @@
             }
         }
 
-        /* Enhanced Animation Performance */
+        /* Performance optimizations */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1244,23 +1227,669 @@
                 transition-duration: 0.01ms !important;
             }
         }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="luxury-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --pearl-white: #1a1a1a;
-                --cream: #2d2d2d;
-                --deep-black: #f0f0f0;
-                --soft-black: #d0d0d0;
-                --charcoal: #f5f5f5;
+    <div class="luxury-container">
+        <!-- Premium Header Section -->
+        <header class="prestige-header">
+            <div class="brand-signature">
+                <div class="signature-emblem">P</div>
+                <span>Prestige Renovation</span>
+            </div>
+            
+            <h1 class="prestige-title">Luxury Decking Atelier</h1>
+            
+            <p class="prestige-subtitle">
+                Transforming outdoor spaces into sophisticated sanctuaries of elegance and comfort, 
+                where artisanal craftsmanship meets contemporary luxury living.
+            </p>
+            
+            <div class="luxury-badges">
+                <div class="prestige-badge">Master Craftsmen</div>
+                <div class="prestige-badge">Premium Materials</div>
+                <div class="prestige-badge">Lifetime Warranty</div>
+            </div>
+        </header>
+
+        <!-- Luxury Navigation Tabs -->
+        <div class="luxury-tabs">
+            <div class="tabs-navigation">
+                <div class="luxury-tab active" data-tab="essential">
+                    <span class="tab-emblem">🏡</span>
+                    Essential Deck
+                </div>
+                <div class="luxury-tab" data-tab="premium">
+                    <span class="tab-emblem">✨</span>
+                    Premium Retreat
+                </div>
+                <div class="luxury-tab" data-tab="signature">
+                    <span class="tab-emblem">👑</span>
+                    Signature Collection
+                </div>
+            </div>
+
+            <!-- Essential Deck Content -->
+            <div id="essential" class="luxury-content active">
+                <div class="prestige-card">
+                    <div class="card-header">
+                        <div class="luxury-icon">🏡</div>
+                        <div class="card-info">
+                            <div class="tier-badge">Essential</div>
+                            <h3>Foundation Deck</h3>
+                            <p class="luxury-description">
+                                Our entry-level luxury deck combines quality craftsmanship with accessible pricing. 
+                                Perfect for homeowners seeking elevated outdoor living without compromise.
+                            </p>
+                        </div>
+                        <div class="investment-level">
+                            <div class="investment-label">Investment Level</div>
+                            <div class="price-diamonds">
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond inactive"></div>
+                                <div class="price-diamond inactive"></div>
+                                <div class="price-diamond inactive"></div>
+                                <div class="price-diamond inactive"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="excellence-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">15</div>
+                            <div class="metric-label">Year Warranty</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Quality</div>
+                            <div class="metric-label">Materials</div>
+                        </div>
+                    </div>
+
+                    <div class="luxury-details">
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🔨</div>
+                                Craftsmanship Features
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Premium pressure-treated lumber construction</li>
+                                <li>Entry-level composite decking boards</li>
+                                <li>Galvanized steel hardware throughout</li>
+                                <li>Concealed fastening system</li>
+                                <li>Staining and sealing</li>
+                                <li>Code-compliant railings and safety features</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🏗️</div>
+                                Essential Decking Materials
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Pressure-Treated Pine/Southern Yellow Pine</li>
+                                <li>Trex Select Collection</li>
+                                <li>TimberTech EDGE Prime Collection</li>
+                                <li>Deckorators Keystone Collection</li>
+                                <li>Basic Composite Options</li>
+                                <li>Standard Treated Lumber Grades</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">⚖️</div>
+                                Investment Considerations
+                            </h4>
+                            <div class="luxury-comparison">
+                                <div>
+                                    <h5 style="color: #2d8653; margin-bottom: 1rem;">Advantages</h5>
+                                    <ul class="advantages-list">
+                                        <li><span class="luxury-check">✓</span>Exceptional value proposition</li>
+                                        <li><span class="luxury-check">✓</span>Quality materials and construction</li>
+                                        <li><span class="luxury-check">✓</span>Professional installation included</li>
+                                        <li><span class="luxury-check">✓</span>15-year comprehensive warranty</li>
+                                        <li><span class="luxury-check">✓</span>Quick 3-5 week completion</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 style="color: var(--accent-copper); margin-bottom: 1rem;">Considerations</h5>
+                                    <ul class="considerations-list">
+                                        <li><span class="luxury-caution">!</span>Limited customization options</li>
+                                        <li><span class="luxury-caution">!</span>Standard material selections</li>
+                                        <li><span class="luxury-caution">!</span>Basic lighting package</li>
+                                        <li><span class="luxury-caution">!</span>No premium add-ons included</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prestige-actions">
+                        <button class="luxury-button">Request Consultation</button>
+                        <button class="secondary-button">View Gallery</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Retreat Content -->
+            <div id="premium" class="luxury-content">
+                <div class="prestige-card">
+                    <div class="card-header">
+                        <div class="luxury-icon">✨</div>
+                        <div class="card-info">
+                            <div class="tier-badge">Premium</div>
+                            <h3>Luxury Retreat</h3>
+                            <p class="luxury-description">
+                                Elevated outdoor living with premium materials and custom features. 
+                                The perfect balance of luxury and functionality for discerning homeowners.
+                            </p>
+                        </div>
+                        <div class="investment-level">
+                            <div class="investment-label">Investment Level</div>
+                            <div class="price-diamonds">
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond inactive"></div>
+                                <div class="price-diamond inactive"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="excellence-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">25</div>
+                            <div class="metric-label">Year Warranty</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Custom</div>
+                            <div class="metric-label">Design Options</div>
+                        </div>
+                    </div>
+
+                    <div class="luxury-details">
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">💎</div>
+                                Premium Features
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Exotic hardwood or premium composite decking</li>
+                                <li>Custom railing designs with glass or cable options</li>
+                                <li>Integrated LED lighting system</li>
+                                <li>Built-in seating and planters</li>
+                                <li>Outdoor kitchen prep area</li>
+                                <li>Pergola or shade structure integration</li>
+                                <li>Multi-level design capabilities</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🏗️</div>
+                                Premium Decking Materials
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Trex Transcend Collection</li>
+                                <li>Trex Enhance Collection</li>
+                                <li>TimberTech PRO Collection</li>
+                                <li>TimberTech EDGE Collection</li>
+                                <li>Deckorators Terrain Collection</li>
+                                <li>Deckorators Vault Collection</li>
+                                <li>Premium Pressure-Treated Lumber</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">⚖️</div>
+                                Investment Analysis
+                            </h4>
+                            <div class="luxury-comparison">
+                                <div>
+                                    <h5 style="color: #2d8653; margin-bottom: 1rem;">Premium Advantages</h5>
+                                    <ul class="advantages-list">
+                                        <li><span class="luxury-check">✓</span>Extensive customization options</li>
+                                        <li><span class="luxury-check">✓</span>Premium material selections</li>
+                                        <li><span class="luxury-check">✓</span>Integrated lighting and electrical</li>
+                                        <li><span class="luxury-check">✓</span>25-year extended warranty</li>
+                                        <li><span class="luxury-check">✓</span>Dedicated project manager</li>
+                                        <li><span class="luxury-check">✓</span>Significant home value increase</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 style="color: var(--accent-copper); margin-bottom: 1rem;">Considerations</h5>
+                                    <ul class="considerations-list">
+                                        <li><span class="luxury-caution">!</span>Higher investment requirement</li>
+                                        <li><span class="luxury-caution">!</span>Extended timeline for completion</li>
+                                        <li><span class="luxury-caution">!</span>Requires HOA approval for some features</li>
+                                        <li><span class="luxury-caution">!</span>Premium maintenance recommendations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prestige-actions">
+                        <button class="luxury-button">Schedule Design Meeting</button>
+                        <button class="secondary-button">Premium Portfolio</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signature Collection Content -->
+            <div id="signature" class="luxury-content">
+                <div class="prestige-card signature">
+                    <div class="signature-crown">Signature</div>
+                    <div class="card-header">
+                        <div class="luxury-icon">👑</div>
+                        <div class="card-info">
+                            <div class="tier-badge" style="background: var(--gradient-primary); color: var(--deep-black);">Signature Collection</div>
+                            <h3>Bespoke Masterpiece</h3>
+                            <p class="luxury-description">
+                                The pinnacle of outdoor luxury living. Completely custom-designed and hand-crafted 
+                                using the finest materials available. A true work of art for your home.
+                            </p>
+                        </div>
+                        <div class="investment-level">
+                            <div class="investment-label">Investment Level</div>
+                            <div class="price-diamonds">
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                                <div class="price-diamond"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="excellence-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">25</div>
+                            <div class="metric-label">Year Limited Warranty</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">∞</div>
+                            <div class="metric-label">Size Limit</div>
+                        </div>
+                    </div>
+
+                    <div class="luxury-details">
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🎨</div>
+                                Signature Craftsmanship
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Premium hardwoods: Ipe, Mahogany, Teak selections</li>
+                                <li>Smart home integration and automation</li>
+                                <li>Outdoor kitchen and entertainment systems</li>
+                                <li>Water features and landscape integration</li>
+                                <li>Climate-controlled outdoor rooms</li>
+                                <li>Custom built-in features</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🏗️</div>
+                                Signature Decking Materials
+                            </h4>
+                            <ul class="craftsmanship-list">
+                                <li>Trex Transcend Lineage Collection</li>
+                                <li>TimberTech AZEK Vintage Collection</li>
+                                <li>TimberTech AZEK Harvest Collection</li>
+                                <li>Deckorators Voyage Collection</li>
+                                <li>Premium Hardwoods (Ipe, Mahogany, Teak)</li>
+                                <li>Aluminum Decking Systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>
+                                <div class="detail-emblem">🏆</div>
+                                Signature Experience
+                            </h4>
+                            <div class="luxury-comparison">
+                                <div>
+                                    <h5 style="color: #2d8653; margin-bottom: 1rem;">Signature Benefits</h5>
+                                    <ul class="advantages-list">
+                                        <li><span class="luxury-check">✓</span>Completely bespoke design</li>
+                                        <li><span class="luxury-check">✓</span>World-class materials and finishes</li>
+                                        <li><span class="luxury-check">✓</span>Master craftsman dedication</li>
+                                        <li><span class="luxury-check">✓</span>Lifetime warranty coverage</li>
+                                        <li><span class="luxury-check">✓</span>24/7 concierge support</li>
+                                        <li><span class="luxury-check">✓</span>Award-winning design recognition</li>
+                                        <li><span class="luxury-check">✓</span>Property value premium increase</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 style="color: var(--accent-copper); margin-bottom: 1rem;">Investment Notes</h5>
+                                    <ul class="considerations-list">
+                                        <li><span class="luxury-caution">!</span>Substantial investment commitment</li>
+                                        <li><span class="luxury-caution">!</span>Extended design and build timeline</li>
+                                        <li><span class="luxury-caution">!</span>Requires comprehensive planning approval</li>
+                                        <li><span class="luxury-caution">!</span>Limited availability - exclusive clientele</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prestige-actions">
+                        <button class="luxury-button">Private Consultation</button>
+                        <button class="secondary-button">Signature Gallery</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.luxury-tab');
+            const contents = document.querySelectorAll('.luxury-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Enhanced button interactions
+            const buttons = document.querySelectorAll('.luxury-button, .secondary-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255,255,255,0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add ripple animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Smooth scrolling for internal navigation
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe cards for scroll animations
+            const cards = document.querySelectorAll('.prestige-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Enhanced hover effects for metric items
+            const metricItems = document.querySelectorAll('.metric-item');
+            metricItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.03)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Dynamic particle system
+            const particleContainer = document.querySelector('.luxury-particles');
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particleContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
             }
 
-            body {
-                background: radial-gradient(ellipse at top, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            // Create additional particles periodically
+            setInterval(createParticle, 2000);
+
+            // Add keyboard navigation support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    // Add focus styles for accessibility
+                    const focusableElements = document.querySelectorAll(
+                        'button, .luxury-tab, a, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                    );
+                    
+                    focusableElements.forEach(el => {
+                        el.addEventListener('focus', function() {
+                            this.style.outline = '3px solid var(--luxury-gold)';
+                            this.style.outlineOffset = '2px';
+                        });
+                        
+                        el.addEventListener('blur', function() {
+                            this.style.outline = 'none';
+                        });
+                    });
+                }
+            });
+
+            // Performance optimization: Reduce animations on slower devices
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReducedMotion.matches) {
+                document.body.style.setProperty('--animation-duration', '0.01ms');
             }
 
-            .prestige-card, .luxury-tab, .metric-item, .craftsmanship-list li {
-                background: linear-gradient(145deg, rgba(30,30,30,0.95), rgba(20,20,20,0.85));
-                border-color: rgba(212, 175, 55, 0.3);
+            // Add loading animation
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--gradient-glass);
+                backdrop-filter: blur(20px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease;
+            `;
+            
+            const loadingSpinner = document.createElement('div');
+            loadingSpinner.style.cssText = `
+                width: 60px;
+                height: 60px;
+                border: 4px solid var(--platinum);
+                border-top: 4px solid var(--luxury-gold);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            `;
+            
+            const spinKeyframes = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            
+            if (!document.querySelector('#spin-animation')) {
+                const spinStyle = document.createElement('style');
+                spinStyle.id = 'spin-animation';
+                spinStyle.textContent = spinKeyframes;
+                document.head.appendChild(spinStyle);
             }
-        }
+            
+            loadingOverlay.appendChild(loadingSpinner);
+            document.body.appendChild(loadingOverlay);
+            
+            // Remove loading overlay after page loads
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 500);
+                }, 800);
+            });
+
+            // Add error handling for images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                });
+            });
+
+            // Initialize tooltips for interactive elements
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(element => {
+                element.addEventListener('mouseenter', function(e) {
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'luxury-tooltip';
+                    tooltip.textContent = this.getAttribute('data-tooltip');
+                    tooltip.style.cssText = `
+                        position: absolute;
+                        background: var(--deep-black);
+                        color: var(--pearl-white);
+                        padding: 8px 16px;
+                        border-radius: 8px;
+                        font-size: 0.9rem;
+                        white-space: nowrap;
+                        z-index: 1000;
+                        pointer-events: none;
+                        opacity: 0;
+                        transform: translateY(10px);
+                        transition: all 0.3s ease;
+                    `;
+                    
+                    document.body.appendChild(tooltip);
+                    
+                    const rect = this.getBoundingClientRect();
+                    tooltip.style.left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2) + 'px';
+                    tooltip.style.top = rect.bottom + 10 + 'px';
+                    
+                    setTimeout(() => {
+                        tooltip.style.opacity = '1';
+                        tooltip.style.transform = 'translateY(0)';
+                    }, 10);
+                    
+                    this._tooltip = tooltip;
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    if (this._tooltip) {
+                        this._tooltip.style.opacity = '0';
+                        this._tooltip.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            if (this._tooltip && this._tooltip.parentNode) {
+                                this._tooltip.remove();
+                            }
+                        }, 300);
+                    }
+                });
+            });
+
+            console.log('Prestige Renovation - Luxury Decking Atelier initialized successfully');
+        });
+
+        // Add some sample tooltip attributes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add tooltips to metric items
+            const metricItems = document.querySelectorAll('.metric-item');
+            const tooltips = [
+                'Industry-leading warranty coverage',
+                'Maximum recommended deck size',
+                'Professional construction timeline',
+                'Average client satisfaction rating'
+            ];
+            
+            metricItems.forEach((item, index) => {
+                if (tooltips[index]) {
+                    item.setAttribute('data-tooltip', tooltips[index]);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
