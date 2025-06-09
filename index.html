@@ -1889,7 +1889,6 @@
 
                     <div class="prestige-actions">
                         <button class="luxury-button">Request Consultation</button>
-                        <button class="secondary-button">View Gallery</button>
                     </div>
                 </div>
             </div>
@@ -1989,8 +1988,7 @@
                     </div>
 
                     <div class="prestige-actions">
-                        <button class="luxury-button">Schedule Design Meeting</button>
-                        <button class="secondary-button">Premium Portfolio</button>
+                        <a href="https://prestigerenovationllc.com" target="_blank" class="luxury-button">Schedule Design Meeting</a>
                     </div>
                 </div>
             </div>
@@ -2096,8 +2094,7 @@
                     </div>
 
                     <div class="prestige-actions">
-                        <button class="luxury-button">Private Consultation</button>
-                        <button class="secondary-button">Signature Gallery</button>
+                        <a href="https://prestigerenovationllc.com" target="_blank" class="luxury-button">Private Consultation</a>
                     </div>
                 </div>
             </div>
@@ -2211,8 +2208,7 @@
                     </div>
 
                     <div class="prestige-actions">
-                        <button class="luxury-button">Railing Consultation</button>
-                        <button class="secondary-button">View Railing Gallery</button>
+                        <a href="https://prestigerenovationllc.com" target="_blank" class="luxury-button">Railing Consultation</a>
                     </div>
                 </div>
             </div>
@@ -2485,101 +2481,248 @@
         let totalScore = 0;
 
         const products = {
-            trexTranscend: {
-                name: "Trex Transcend",
+            // TREX PRODUCTS
+            trexEntry: {
+                name: "Trex Entry Level",
                 brand: "Trex",
-                tier: "Premium",
-                description: "The ultimate in composite decking with superior performance and stunning aesthetics",
+                tier: "Entry Level",
+                priceRange: "$",
+                description: "Most affordable Trex option with reliable performance and 25-year warranty",
                 features: [
-                    { title: "25-Year Warranty", desc: "Comprehensive fade & stain protection" },
-                    { title: "3-Sided Shell Protection", desc: "Advanced capping technology" },
-                    { title: "Spill-Proof Technology", desc: "Liquids stay on surface for easy cleanup" },
-                    { title: "Tropical Hardwood Appearance", desc: "Exotic wood grain patterns" }
-                ]
+                    { title: "25-Year Warranty", desc: "Basic performance guarantee" },
+                    { title: "Entry-Level Composite", desc: "Reliable Trex quality at budget price" },
+                    { title: "Limited Colors", desc: "Essential color selections" },
+                    { title: "Good Value", desc: "Quality materials at affordable price" }
+                ],
+                colors: ["Basic Colors Available"]
             },
-            trexEnhance: {
-                name: "Trex Enhance",
+            trexEnhanceBasics: {
+                name: "Trex Enhance Basics",
                 brand: "Trex",
-                tier: "Mid-Level",
-                description: "Premium composite performance with excellent durability and natural beauty",
+                tier: "Entry Level",
+                priceRange: "$",
+                description: "Nature-inspired composite with lightweight scalloped profile for easy handling",
                 features: [
-                    { title: "25-Year Warranty", desc: "Fade & stain resistance guarantee" },
-                    { title: "Enhanced Grain Pattern", desc: "Realistic wood texture" },
-                    { title: "Protective Shell", desc: "Durable surface protection" },
-                    { title: "Easy Maintenance", desc: "Simple soap and water cleaning" }
-                ]
+                    { title: "Lightweight Profile", desc: "Scalloped design for easier installation" },
+                    { title: "Nature-Inspired", desc: "Realistic wood appearance" },
+                    { title: "Easy Handling", desc: "Lighter weight than solid boards" },
+                    { title: "Good Performance", desc: "Reliable entry-level option" }
+                ],
+                colors: ["Clam Shell", "Beach Dune", "Saddle"]
+            },
+            trexEnhanceNaturals: {
+                name: "Trex Enhance Naturals",
+                brand: "Trex",
+                tier: "Entry Level",
+                priceRange: "$",
+                description: "Multi-tonal wood appearance with better fade resistance than basics",
+                features: [
+                    { title: "Multi-Tonal Appearance", desc: "More realistic wood grain patterns" },
+                    { title: "Better Fade Resistance", desc: "Improved color retention" },
+                    { title: "Enhanced Performance", desc: "Step up from basic entry level" },
+                    { title: "Natural Look", desc: "Authentic wood aesthetics" }
+                ],
+                colors: ["Coastal Bluff"]
             },
             trexSelect: {
                 name: "Trex Select",
                 brand: "Trex",
-                tier: "Value",
-                description: "Quality composite decking that delivers lasting beauty and performance",
+                tier: "Mid-Tier",
+                priceRange: "$",
+                description: "Enhanced performance composite with 35-year warranty and better color retention",
                 features: [
-                    { title: "25-Year Warranty", desc: "Long-term protection" },
-                    { title: "Composite Durability", desc: "Won't rot, warp, or splinter" },
-                    { title: "Eco-Friendly", desc: "Made from recycled materials" },
-                    { title: "Low Maintenance", desc: "No staining or sealing required" }
-                ]
+                    { title: "35-Year Warranty", desc: "Extended protection coverage" },
+                    { title: "Better Color Retention", desc: "Enhanced fade resistance" },
+                    { title: "Mold/Mildew Resistance", desc: "Superior moisture protection" },
+                    { title: "Scratch Resistance", desc: "Thinner profile with good durability" }
+                ],
+                colors: ["Classic White", "Charcoal Black", "Winchester Grey"]
             },
-            timbertechAzek: {
-                name: "TimberTech AZEK",
-                brand: "TimberTech",
+            trexTranscend: {
+                name: "Trex Transcend",
+                brand: "Trex",
                 tier: "Premium",
-                description: "Advanced polymer decking with exceptional performance and innovative features",
+                priceRange: "$$-$$",
+                description: "High-performance composite with 50-year warranty and superior performance",
                 features: [
-                    { title: "30-Year Warranty", desc: "Industry-leading protection" },
-                    { title: "Alloy Armour Technology", desc: "Superior scratch & stain resistance" },
-                    { title: "Cool Surface", desc: "Stays up to 35°F cooler" },
-                    { title: "Moisture Shield", desc: "100% moisture resistant core" }
-                ]
+                    { title: "50-Year Warranty", desc: "Industry-leading protection" },
+                    { title: "Superior Fade Resistance", desc: "Exceptional color retention" },
+                    { title: "Realistic Wood Grain", desc: "Premium authentic appearance" },
+                    { title: "Excellent Durability", desc: "Superior scratch resistance" }
+                ],
+                colors: ["Island Mist", "Spiced Rum", "Tiki Torch", "Havana Gold", "Lava Rock", "Vintage Lantern", "Rope Swing", "Gravel Path"]
             },
-            timbertechPro: {
-                name: "TimberTech PRO",
-                brand: "TimberTech",
-                tier: "Mid-Level",
-                description: "Professional-grade composite with outstanding durability and authentic wood looks",
+            trexLineage: {
+                name: "Trex Lineage",
+                brand: "Trex",
+                tier: "Premium/Ultra-Premium",
+                priceRange: "$$-$$",
+                description: "Heat-mitigating technology keeps deck cooler with premium composite construction",
                 features: [
-                    { title: "25-Year Warranty", desc: "Comprehensive coverage" },
-                    { title: "HeatMitigator Technology", desc: "Reduced surface temperature" },
-                    { title: "Authentic Grain", desc: "Natural hardwood appearance" },
-                    { title: "Capped Composite", desc: "Protected from elements" }
-                ]
+                    { title: "Heat-Mitigating Technology", desc: "Stays cooler in direct sunlight" },
+                    { title: "Advanced Cooling", desc: "Superior comfort underfoot" },
+                    { title: "Premium Composite", desc: "Top-tier construction quality" },
+                    { title: "Cool Deck Technology", desc: "Innovative temperature control" }
+                ],
+                colors: ["Rainier", "Biscayne", "Jasper", "Caramel (Exclusive)"]
             },
-            deckkoratorsVoyager: {
-                name: "Deckorators Voyager",
+            trexSignature: {
+                name: "Trex Signature",
+                brand: "Trex",
+                tier: "Ultra-Premium",
+                priceRange: "$$$",
+                description: "Most realistic wood grain with ultimate durability and luxury aesthetics",
+                features: [
+                    { title: "50-Year Warranty", desc: "Maximum protection coverage" },
+                    { title: "Most Realistic Wood Grain", desc: "Unmatched authentic appearance" },
+                    { title: "Most Scratch-Resistant", desc: "Ultimate durability performance" },
+                    { title: "Luxury Aesthetics", desc: "Premium exotic hardwood look" }
+                ],
+                colors: ["Coastal Dune", "Woodland Brown", "Island Oak"]
+            },
+
+            // DECKORATORS PRODUCTS
+            deckkoratorsVenture: {
+                name: "Deckorators Venture",
                 brand: "Deckorators",
-                tier: "Premium",
-                description: "Luxury composite decking with exceptional beauty and performance",
+                tier: "Entry Level",
+                priceRange: "$",
+                description: "Mineral-based composite entry level with unique core technology and superior strength-to-weight ratio",
                 features: [
-                    { title: "25-Year Warranty", desc: "Fade & stain protection" },
-                    { title: "Mineral Shield Technology", desc: "Enhanced durability" },
-                    { title: "Authentic Hardwood Look", desc: "Realistic grain patterns" },
-                    { title: "Slip Resistant", desc: "Safe in wet conditions" }
-                ]
+                    { title: "Mineral-Based Composite", desc: "Unique core technology" },
+                    { title: "Lighter Weight", desc: "Superior strength-to-weight ratio" },
+                    { title: "Good Value", desc: "Budget-friendly option" },
+                    { title: "Minimal Thermal Expansion", desc: "Stable performance" }
+                ],
+                colors: ["Cedar Tone", "Redwood", "Grey Stone"]
             },
             deckkoratorsVista: {
                 name: "Deckorators Vista",
                 brand: "Deckorators",
-                tier: "Value",
-                description: "Quality composite decking that combines beauty with reliable performance",
+                tier: "Mid-Tier",
+                priceRange: "$",
+                description: "Enhanced mineral composite with better performance and good moisture resistance",
                 features: [
-                    { title: "20-Year Warranty", desc: "Long-term protection" },
-                    { title: "Composite Technology", desc: "Durable and low maintenance" },
-                    { title: "Natural Wood Grain", desc: "Attractive appearance" },
-                    { title: "Eco-Conscious", desc: "Sustainable materials" }
-                ]
+                    { title: "Enhanced Mineral Composite", desc: "Better performance than entry level" },
+                    { title: "Good Moisture Resistance", desc: "Improved weather protection" },
+                    { title: "Improved Scratch Resistance", desc: "Enhanced durability" },
+                    { title: "Advanced Slip Resistance", desc: "Safer surface texture" }
+                ],
+                colors: ["Canyon", "Cottage", "Terrain"]
             },
-            pressureTreated: {
-                name: "Premium Pressure Treated Wood",
-                brand: "Traditional",
-                tier: "Classic",
-                description: "Quality wood decking with natural beauty and proven performance",
+            deckkoratorsVault: {
+                name: "Deckorators Vault",
+                brand: "Deckorators",
+                tier: "Premium",
+                priceRange: "$$",
+                description: "Premium mineral composite with superior structural strength and excellent moisture resistance",
                 features: [
-                    { title: "Natural Wood Beauty", desc: "Authentic grain and character" },
-                    { title: "Customizable Finish", desc: "Stain any color you prefer" },
-                    { title: "Excellent Value", desc: "Cost-effective investment" },
-                    { title: "Easy to Work With", desc: "Simple repairs and modifications" }
-                ]
+                    { title: "Premium Mineral Composite", desc: "Top-tier material quality" },
+                    { title: "Superior Structural Strength", desc: "Enhanced load-bearing capacity" },
+                    { title: "Excellent Moisture Resistance", desc: "Advanced weather protection" },
+                    { title: "Enhanced Durability", desc: "Long-lasting performance" }
+                ],
+                colors: ["Desert", "Fieldstone", "Vintage"]
+            },
+            deckkoratorsVoyage: {
+                name: "Deckorators Voyage",
+                brand: "Deckorators",
+                tier: "Premium",
+                priceRange: "$$",
+                description: "Top-tier mineral composite with best Deckorators performance and premium aesthetics",
+                features: [
+                    { title: "Top-Tier Mineral Composite", desc: "Best Deckorators performance" },
+                    { title: "Premium Aesthetics", desc: "Superior visual appeal" },
+                    { title: "Superior Weather Resistance", desc: "Maximum environmental protection" },
+                    { title: "Professional Quality", desc: "Premium construction standards" }
+                ],
+                colors: ["Driftwood", "Coastline", "Harbor"]
+            },
+
+            // TIMBERTECH PRODUCTS
+            timbertechEdgePrime: {
+                name: "TimberTech Edge Prime",
+                brand: "TimberTech",
+                tier: "Entry Level",
+                priceRange: "$",
+                description: "Solid entry-level performance with consistent quality and good warranty",
+                features: [
+                    { title: "Consistent Quality", desc: "Reliable TimberTech standards" },
+                    { title: "Good Warranty", desc: "Solid protection coverage" },
+                    { title: "Professional Installation", desc: "Established contractor network" },
+                    { title: "Reliable Performance", desc: "Dependable entry-level option" }
+                ],
+                colors: ["Cedar", "Rustic Elm", "Coconut Husk"]
+            },
+            timbertechTerrain: {
+                name: "TimberTech Terrain",
+                brand: "TimberTech",
+                tier: "Mid-Tier",
+                priceRange: "$$",
+                description: "Enhanced durability composite with better scratch resistance and improved fade protection",
+                features: [
+                    { title: "Enhanced Durability", desc: "Superior composite construction" },
+                    { title: "Better Scratch Resistance", desc: "Improved surface protection" },
+                    { title: "Improved Fade Protection", desc: "Better color retention" },
+                    { title: "Realistic Wood Appearance", desc: "More authentic aesthetics" }
+                ],
+                colors: ["Silver Maple", "Brown Oak", "Sandy Birch"]
+            },
+            timbertechHarvest: {
+                name: "TimberTech Harvest",
+                brand: "TimberTech",
+                tier: "Premium",
+                priceRange: "$$",
+                description: "Premium composite performance with excellent weather resistance and superior color retention",
+                features: [
+                    { title: "Premium Composite Performance", desc: "High-quality construction" },
+                    { title: "Excellent Weather Resistance", desc: "Superior environmental protection" },
+                    { title: "Superior Color Retention", desc: "Long-lasting appearance" },
+                    { title: "High-Quality Wood Aesthetics", desc: "Premium visual appeal" }
+                ],
+                colors: ["Tahoe", "Mocha", "Hickory"]
+            },
+            timbertechCastleGate: {
+                name: "TimberTech Castle Gate",
+                brand: "TimberTech",
+                tier: "Ultra-Premium",
+                priceRange: "$$$",
+                description: "Luxury-grade composite with exceptional aesthetic appeal and premium warranty coverage",
+                features: [
+                    { title: "Luxury-Grade Composite", desc: "Premium material quality" },
+                    { title: "Exceptional Aesthetic Appeal", desc: "Superior visual design" },
+                    { title: "Premium Warranty Coverage", desc: "Enhanced protection" },
+                    { title: "Superior Performance Features", desc: "Top-tier functionality" }
+                ],
+                colors: ["Antique Palm", "Aged Teak", "Rich Espresso"]
+            },
+            timbertechLandmark: {
+                name: "TimberTech Landmark",
+                brand: "TimberTech",
+                tier: "Ultra-Premium",
+                priceRange: "$$$",
+                description: "Top-tier performance composite with industry-leading warranty and exceptional weather resistance",
+                features: [
+                    { title: "Top-Tier Performance", desc: "Best-in-class composite quality" },
+                    { title: "Industry-Leading Warranty", desc: "Maximum protection coverage" },
+                    { title: "Exceptional Weather Resistance", desc: "Ultimate environmental protection" },
+                    { title: "Premium Aesthetic Quality", desc: "Superior visual excellence" }
+                ],
+                colors: ["Nantucket Grey", "Weathered Teak", "Barnwood"]
+            },
+            timbertechVintage: {
+                name: "TimberTech Vintage",
+                brand: "TimberTech",
+                tier: "Ultra-Premium",
+                priceRange: "$$$$",
+                description: "Highest-tier TimberTech product with unmatched durability and ultimate luxury positioning",
+                features: [
+                    { title: "Highest-Tier Product", desc: "Ultimate TimberTech quality" },
+                    { title: "Unmatched Durability", desc: "Maximum longevity performance" },
+                    { title: "Premium Vintage Appearance", desc: "Exclusive aesthetic design" },
+                    { title: "Ultimate Luxury Positioning", desc: "Top-of-the-line product" }
+                ],
+                colors: ["Mahogany", "Redwood", "Walnut"]
             }
         };
 
@@ -2727,31 +2870,104 @@
             document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
             document.querySelector('.navigation').style.display = 'none';
             
-            // Determine product based on score
+            // Determine product based on score and preferences
             let recommendedProduct;
-            if (totalScore >= 19) {
-                recommendedProduct = products.trexTranscend;
+            let alternativeProducts = [];
+            
+            // Analyze preferences for brand recommendation
+            const valuePreference = answers[1]?.value; // value, balanced, premium
+            const maintenancePreference = answers[2]?.value; // minimal, some, regular
+            const climateConditions = answers[3]?.value; // harsh, moderate, mild
+            const usageIntensity = answers[4]?.value; // entertaining, family, relaxing
+            const stylePreference = answers[5]?.value; // modern, traditional, rustic
+            const performanceFeature = answers[6]?.value; // fade-resistant, slip-resistant, heat-resistant, authentic-look
+            const topPriority = answers[7]?.value; // longevity, appearance, value
+            
+            // Score-based initial categorization
+            if (totalScore >= 20) {
+                // Ultra-Premium Tier
+                if (performanceFeature === 'heat-resistant' || climateConditions === 'harsh') {
+                    recommendedProduct = products.trexLineage; // Heat-mitigating technology
+                    alternativeProducts = [products.trexSignature, products.timbertechVintage];
+                } else if (stylePreference === 'modern' || topPriority === 'appearance') {
+                    recommendedProduct = products.trexSignature; // Most realistic wood grain
+                    alternativeProducts = [products.timbertechLandmark, products.trexLineage];
+                } else {
+                    recommendedProduct = products.timbertechVintage; // Ultimate luxury
+                    alternativeProducts = [products.timbertechLandmark, products.trexSignature];
+                }
             } else if (totalScore >= 17) {
-                recommendedProduct = products.timbertechAzek;
-            } else if (totalScore >= 16) {
-                recommendedProduct = products.deckkoratorsVoyager;
+                // Premium Tier
+                if (performanceFeature === 'heat-resistant') {
+                    recommendedProduct = products.trexLineage;
+                    alternativeProducts = [products.trexTranscend, products.timbertechHarvest];
+                } else if (valuePreference === 'premium' && topPriority === 'longevity') {
+                    recommendedProduct = products.trexTranscend; // 50-year warranty
+                    alternativeProducts = [products.timbertechHarvest, products.deckkoratorsVoyage];
+                } else if (stylePreference === 'modern') {
+                    recommendedProduct = products.timbertechCastleGate; // Luxury aesthetics
+                    alternativeProducts = [products.trexTranscend, products.timbertechLandmark];
+                } else {
+                    recommendedProduct = products.timbertechHarvest;
+                    alternativeProducts = [products.deckkoratorsVoyage, products.deckkoratorsVault];
+                }
             } else if (totalScore >= 14) {
-                recommendedProduct = products.trexEnhance;
-            } else if (totalScore >= 13) {
-                recommendedProduct = products.timbertechPro;
+                // Mid-Tier Premium
+                if (topPriority === 'longevity') {
+                    recommendedProduct = products.trexTranscend; // Premium with 50-year warranty
+                    alternativeProducts = [products.timbertechHarvest, products.deckkoratorsVault];
+                } else if (climateConditions === 'harsh') {
+                    recommendedProduct = products.deckkoratorsVault; // Superior structural strength
+                    alternativeProducts = [products.timbertechTerrain, products.trexTranscend];
+                } else {
+                    recommendedProduct = products.deckkoratorsVoyage;
+                    alternativeProducts = [products.trexTranscend, products.timbertechHarvest];
+                }
             } else if (totalScore >= 11) {
-                recommendedProduct = products.trexSelect;
-            } else if (totalScore >= 10) {
-                recommendedProduct = products.deckkoratorsVista;
+                // Mid-Tier
+                if (valuePreference === 'balanced' && topPriority === 'value') {
+                    recommendedProduct = products.trexSelect; // Enhanced performance, good value
+                    alternativeProducts = [products.timbertechTerrain, products.deckkoratorsVista];
+                } else if (performanceFeature === 'authentic-look' || stylePreference === 'traditional') {
+                    recommendedProduct = products.timbertechTerrain; // More realistic wood appearance
+                    alternativeProducts = [products.trexSelect, products.deckkoratorsVista];
+                } else {
+                    recommendedProduct = products.deckkoratorsVista;
+                    alternativeProducts = [products.trexSelect, products.timbertechTerrain];
+                }
+            } else if (totalScore >= 8) {
+                // Entry Level Plus
+                if (topPriority === 'value' && maintenancePreference === 'regular') {
+                    recommendedProduct = products.trexEnhanceBasics; // Good value with nature-inspired look
+                    alternativeProducts = [products.deckkoratorsVenture, products.timbertechEdgePrime];
+                } else if (stylePreference === 'traditional' || performanceFeature === 'authentic-look') {
+                    recommendedProduct = products.trexEnhanceNaturals; // Better wood appearance
+                    alternativeProducts = [products.timbertechEdgePrime, products.trexEnhanceBasics];
+                } else {
+                    recommendedProduct = products.timbertechEdgePrime; // Solid entry performance
+                    alternativeProducts = [products.deckkoratorsVenture, products.trexEnhanceNaturals];
+                }
             } else {
-                recommendedProduct = products.pressureTreated;
+                // Budget-Friendly Entry Level
+                if (topPriority === 'value') {
+                    recommendedProduct = products.deckkoratorsVenture; // Most affordable mineral composite
+                    alternativeProducts = [products.trexEntry, products.trexEnhanceBasics];
+                } else if (stylePreference === 'traditional') {
+                    recommendedProduct = products.trexEnhanceBasics; // Nature-inspired composite
+                    alternativeProducts = [products.trexEntry, products.deckkoratorsVenture];
+                } else {
+                    recommendedProduct = products.trexEntry; // Most affordable Trex
+                    alternativeProducts = [products.deckkoratorsVenture, products.trexEnhanceBasics];
+                }
             }
             
-            // Display recommendation
+            // Display main recommendation
             document.getElementById('recommendation').innerHTML = `
                 <h3>${recommendedProduct.name}</h3>
-                <div class="brand-tier">${recommendedProduct.brand} - ${recommendedProduct.tier} Tier</div>
+                <div class="brand-tier">${recommendedProduct.brand} - ${recommendedProduct.tier}</div>
+                <div style="color: var(--luxury-gold); font-weight: 600; margin: 10px 0;">Price Range: ${recommendedProduct.priceRange}</div>
                 <p>${recommendedProduct.description}</p>
+                ${recommendedProduct.colors ? `<div style="margin-top: 15px;"><strong>Available Colors:</strong> ${recommendedProduct.colors.join(', ')}</div>` : ''}
             `;
             
             // Display features
@@ -2762,7 +2978,16 @@
                 </div>
             `).join('');
             
-            document.getElementById('features').innerHTML = featuresHtml;
+            // Add alternative recommendations
+            const alternativesHtml = alternativeProducts.map(product => `
+                <div class="feature" style="border: 2px solid var(--luxury-gold); background: linear-gradient(135deg, #fff9f0 0%, #fef9e7 100%);">
+                    <h4>Alternative: ${product.name}</h4>
+                    <p><strong>${product.brand} - ${product.tier}</strong> (${product.priceRange})</p>
+                    <p>${product.description.substring(0, 100)}...</p>
+                </div>
+            `).join('');
+            
+            document.getElementById('features').innerHTML = featuresHtml + alternativesHtml;
             
             // Show results
             document.getElementById('results').classList.add('active');
