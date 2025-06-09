@@ -1411,6 +1411,102 @@
             font-weight: 600;
         }
 
+        /* Email Capture Styles */
+        .email-capture {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .email-capture.active {
+            display: block;
+        }
+
+        .email-form-container {
+            background: linear-gradient(135deg, #fdf2e9 0%, #fbeee6 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #f4d03f;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.2);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-form-container h2 {
+            color: #1a1a1a;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .email-description {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .email-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #f4d03f;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #f39c12;
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-group input:required:invalid {
+            border-color: #e74c3c;
+        }
+
+        .form-group input:required:valid {
+            border-color: #27ae60;
+        }
+
+        .email-submit {
+            width: 100%;
+            padding: 18px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .privacy-note {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
         .results {
             display: none;
             text-align: center;
@@ -2446,6 +2542,41 @@
                     </div>
                 </div>
 
+                <!-- Email Capture -->
+                <div class="email-capture" id="emailCapture">
+                    <div class="email-form-container">
+                        <h2>🎉 Quiz Complete!</h2>
+                        <p class="email-description">
+                            Get your personalized deck recommendations and exclusive pricing information 
+                            delivered directly to your inbox.
+                        </p>
+                        <form class="email-form" id="emailForm">
+                            <div class="form-group">
+                                <label for="customerEmail">Email Address</label>
+                                <input type="email" id="customerEmail" name="email" required 
+                                       placeholder="Enter your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="customerName">Full Name</label>
+                                <input type="text" id="customerName" name="name" required 
+                                       placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="customerPhone">Phone Number (Optional)</label>
+                                <input type="tel" id="customerPhone" name="phone" 
+                                       placeholder="Enter your phone number">
+                            </div>
+                            <button type="submit" class="btn btn-primary email-submit">
+                                Get My Deck Recommendations
+                            </button>
+                        </form>
+                        <p class="privacy-note">
+                            We respect your privacy. Your information will only be used to send you 
+                            your deck recommendations and occasional updates about our services.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Results -->
                 <div class="results" id="results">
                     <h2>🎉 Your Perfect Deck Match!</h2>
@@ -2460,7 +2591,7 @@
                     <div class="cta">
                         <h4>Ready to Get Started?</h4>
                         <p>Contact us today for a free consultation and quote!</p>
-                        <button class="btn btn-primary" onclick="location.reload()">Take Quiz Again</button>
+                        <a href="https://prestigerenovationllc.com" target="_blank" class="btn btn-primary">Schedule Consultation</a>
                     </div>
                 </div>
 
@@ -2744,8 +2875,9 @@
             answers = {};
             totalScore = 0;
             
-            // Hide all questions and results
+            // Hide all questions, email capture, and results
             document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+            document.getElementById('emailCapture').classList.remove('active');
             document.getElementById('results').classList.remove('active');
             
             // Show first question
@@ -2765,6 +2897,9 @@
             document.querySelectorAll('.option').forEach(option => {
                 option.classList.remove('selected');
             });
+
+            // Clear email form
+            document.getElementById('emailForm').reset();
         }
 
         function selectOption(element) {
@@ -2869,6 +3004,17 @@
             // Hide all questions
             document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
             document.querySelector('.navigation').style.display = 'none';
+            
+            // Show email capture form first
+            document.getElementById('emailCapture').classList.add('active');
+            
+            // Update progress to 100%
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        function showFinalResults() {
+            // Hide email capture
+            document.getElementById('emailCapture').classList.remove('active');
             
             // Determine product based on score and preferences
             let recommendedProduct;
@@ -2989,11 +3135,8 @@
             
             document.getElementById('features').innerHTML = featuresHtml + alternativesHtml;
             
-            // Show results
+            // Show final results
             document.getElementById('results').classList.add('active');
-            
-            // Update progress to 100%
-            document.getElementById('progressFill').style.width = '100%';
         }
 
         // Tab Functionality
@@ -3026,6 +3169,25 @@
                 option.addEventListener('click', function() {
                     selectOption(this);
                 });
+            });
+
+            // Handle email form submission
+            document.getElementById('emailForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const email = document.getElementById('customerEmail').value;
+                const name = document.getElementById('customerName').value;
+                const phone = document.getElementById('customerPhone').value;
+                
+                // Store customer data (you can integrate with your CRM/email service here)
+                console.log('Customer Data:', { email, name, phone, quizAnswers: answers, totalScore });
+                
+                // You can add integration with your email service provider here
+                // For example: Mailchimp, ConvertKit, etc.
+                
+                // Show the final results
+                showFinalResults();
             });
 
             // Enhanced button interactions
